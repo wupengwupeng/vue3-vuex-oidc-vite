@@ -1,8 +1,8 @@
 import { vuexOidcCreateStoreModule } from "vuex-oidc";
-import { oidcSettings } from "./../../config/oidc";
+import { VUE_APP_OIDC_CONFIG } from "./../../config/oidc";
 
 const oidcStore = vuexOidcCreateStoreModule(
-  oidcSettings,
+  VUE_APP_OIDC_CONFIG,
   {
     namespaced: true,
     dispatchEventsOnWindow: true,

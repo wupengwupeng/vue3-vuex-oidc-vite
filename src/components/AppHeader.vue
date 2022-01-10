@@ -29,11 +29,17 @@ export default {
     ...mapGetters("oidcStore", ["oidcIsAuthenticated"]),
   },
   methods: {
-    ...mapActions("oidcStore", ["authenticateOidcPopup", "removeOidcUser"]),
+    ...mapActions("oidcStore", [
+      "authenticateOidcPopup",
+      "removeOidcUser",
+      "signOutOidc",
+    ]),
 
     signOut: function () {
-      this.removeOidcUser().then(() => {
-        this.$router.push("/");
+      this.signOutOidc().then(() => {
+        this.removeOidcUser().then(() => {
+          this.$router.push("/");
+        });
       });
     },
   },
